@@ -1,3 +1,4 @@
+const path = require('path')
 const glob = require('glob')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 
@@ -12,7 +13,9 @@ module.exports = (nextConfig = {}) => {
 
       config.plugins.push(
         new PurgecssPlugin({
-          paths: glob.sync(`${path.join(__dirname, 'pages')}/**/*`)
+          paths: []
+            .concat(glob.sync(`${path.join(process.cwd(), 'pages')}/**/*`))
+            .concat(glob.sync(`${path.join(process.cwd(), 'components')}/**/*`))
         })
       )
 

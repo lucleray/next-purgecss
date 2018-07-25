@@ -1,6 +1,20 @@
 # next-purgecss
 
-1.  Install `next-css` and `next-purgecss` :
+Next.js + Purgecss = 🔥
+
+[Purgecss](https://www.purgecss.com/) helps you remove unused CSS.
+
+## Installation
+
+`next-purgecss` requires one of the following **css next plugins** :
+
+- [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css)
+- [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less)
+- [next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass)
+
+Just pick the one that fits your needs.
+
+For example, install `next-css` and `next-purgecss` :
 
 ```
 yarn install @zeit/next-css next-purgecss --dev
@@ -12,7 +26,9 @@ or
 npm install @zeit/next-css next-purgecss --save-dev
 ```
 
-2.  Next-css compiles your stylesheet to `.next/static/style.css`, so you need to include it in your page.
+2.  `next-css` (or the other **css next plugin** of your choice) compiles your stylesheet to `.next/static/style.css` and make it available on the server at `/_next/static/style.css`, so you need to include it in your page.
+
+Add a link tag to your `pages/_document.js` :
 
 ```js
 // ./pages/_document.js
@@ -37,7 +53,9 @@ export default class MyDocument extends Document {
 
 More information : [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css).
 
-3.  Edit `next.config.js`
+3.  Edit `next.config.js`.
+
+For example, with `next-css` :
 
 ```js
 // next.config.js

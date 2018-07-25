@@ -19,7 +19,7 @@ module.exports = (nextConfig = {}) => {
             `${path.join(process.cwd(), '+(pages|components)')}/**/*`,
             { nodir: true }
           ),
-          ...purgecssOptions,
+          ...purgecssOptions
         })
       )
 

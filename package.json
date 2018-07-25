@@ -2,11 +2,13 @@
   "name": "next-purgecss",
   "version": "0.0.1",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "author": "lucleray",
   "license": "MIT",
   "dependencies": {
-    "glob-all": "^3.1.0",
+    "glob": "^7.1.2",
     "purgecss-webpack-plugin": "^0.22.0"
   }
 }

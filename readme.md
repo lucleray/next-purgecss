@@ -2,9 +2,13 @@
 
 Next.js + Purgecss = 🔥
 
+[Next.js](https://nextjs.org/) makes it easy to create SSR and static React applications.
+
 [Purgecss](https://www.purgecss.com/) helps you remove unused CSS.
 
 ## Installation
+
+### 1. Install the packages
 
 `next-purgecss` requires one of the following **css next plugins** :
 
@@ -12,7 +16,7 @@ Next.js + Purgecss = 🔥
 - [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less)
 - [next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass)
 
-Just pick the one that fits your needs.
+Just pick the one that fits your needs. In the following steps, I will use `next-css` but it works the same for the other **css next plugins**.
 
 For example, install `next-css` and `next-purgecss` :
 
@@ -26,7 +30,9 @@ or
 npm install @zeit/next-css next-purgecss --save-dev
 ```
 
-2.  `next-css` (or the other **css next plugin** of your choice) compiles your stylesheet to `.next/static/style.css` and make it available on the server at `/_next/static/style.css`, so you need to include it in your page.
+### 2. Add the style to your application
+
+`next-css` compiles your stylesheet to `.next/static/style.css` and make it available on the server at `/_next/static/style.css`, so you need to include it in your page.
 
 Add a link tag to your `pages/_document.js` :
 
@@ -53,9 +59,7 @@ export default class MyDocument extends Document {
 
 More information : [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css).
 
-3.  Edit `next.config.js`.
-
-For example, with `next-css` :
+### 3. Edit `next.config.js`.
 
 ```js
 // next.config.js

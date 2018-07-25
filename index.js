@@ -13,9 +13,10 @@ module.exports = (nextConfig = {}) => {
 
       config.plugins.push(
         new PurgecssPlugin({
-          paths: []
-            .concat(glob.sync(`${path.join(process.cwd(), 'pages')}/**/*`))
-            .concat(glob.sync(`${path.join(process.cwd(), 'components')}/**/*`))
+          paths: glob.sync(
+            `${path.join(process.cwd(), '+(pages|components)')}/**/*`,
+            { nodir: true }
+          )
         })
       )
 

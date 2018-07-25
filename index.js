@@ -11,12 +11,15 @@ module.exports = (nextConfig = {}) => {
         )
       }
 
+      const { purgecssOptions } = nextConfig
+
       config.plugins.push(
         new PurgecssPlugin({
           paths: glob.sync(
             `${path.join(process.cwd(), '+(pages|components)')}/**/*`,
             { nodir: true }
-          )
+          ),
+          ...purgecssOptions
         })
       )
 

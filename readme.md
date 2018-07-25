@@ -46,3 +46,22 @@ const withPurgeCss = require('next-purgecss')
 
 module.exports = withCss(withPurgeCss())
 ```
+
+## Options
+
+By default the default, this plugin will scan `components` and `pages`
+directories for classnames. You can pass custom options to
+[Purgecss](https://github.com/FullHuman/purgecss-webpack-plugin) by defining
+`purgecssOptions` object in your `next.config.js`.
+
+```js
+// next.config.js
+module.exports = withCss(withPurgeCss({
+  purgecssOptions: {
+    whitelist: () => ['my-custom-class'],
+  },
+}))
+```
+
+The list of available options are documented in [`purgecss-webpack-plugin`
+docs](https://github.com/FullHuman/purgecss-webpack-plugin#options).

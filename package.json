@@ -1,11 +1,26 @@
 {
   "name": "next-purgecss",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "keywords": [
+    "next-plugins",
+    "next",
+    "next.js",
+    "purgecss"
+  ],
+  "description": "nextjs + purgecss for faster websites 🔥",
   "main": "index.js",
   "files": [
     "index.js"
   ],
   "author": "lucleray",
+  "homepage": "https://github.com/lucleray/next-purgecss#readme",
+  "bugs": {
+    "url": "https://github.com/lucleray/next-purgecss/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucleray/next-purgecss.git"
+  },
   "license": "MIT",
   "dependencies": {
     "glob": "^7.1.2",

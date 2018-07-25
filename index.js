@@ -11,17 +11,18 @@ module.exports = (nextConfig = {}) => {
         )
       }
 
-      const { purgecssOptions } = nextConfig
+      const { purgeCss } = nextConfig
 
-      config.plugins.push(
-        new PurgecssPlugin({
-          paths: glob.sync(
-            `${path.join(process.cwd(), '+(pages|components)')}/**/*`,
-            { nodir: true }
-          ),
-          ...purgecssOptions
-        })
-      )
+      const defaultPurgeCss = {
+        paths: glob.sync(
+          `${path.join(process.cwd(), '+(pages|components)')}/**/*`,
+          { nodir: true }
+        )
+      }
+
+      const purgeCssOptions = Object.assign({}, defaultPurgeCss, purgeCss)
+
+      config.plugins.push(new PurgecssPlugin(purgeCssOptions))
 
       if (typeof nextConfig.webpack === 'function') {
         return nextConfig.webpack(config, options)

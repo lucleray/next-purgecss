@@ -21,7 +21,7 @@ Just pick the one that fits your needs. In the following steps, I will use `next
 For example, install `next-css` and `next-purgecss` :
 
 ```
-yarn install @zeit/next-css next-purgecss --dev
+yarn add @zeit/next-css next-purgecss --dev
 ```
 
 or

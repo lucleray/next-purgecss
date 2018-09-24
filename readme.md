@@ -24,42 +24,13 @@ For example, install `next-css` and `next-purgecss` :
 yarn add @zeit/next-css next-purgecss --dev
 ```
 
-or
+or with npm :
 
 ```
 npm install @zeit/next-css next-purgecss --save-dev
 ```
 
-### 2. Add the style to your application
-
-`next-css` compiles your stylesheet to `.next/static/style.css` and make it available on the server at `/_next/static/style.css`, so you need to include it in your page.
-
-Add a link tag to your `pages/_document.js` :
-
-```js
-// ./pages/_document.js
-import Document, { Head, Main, NextScript } from 'next/document'
-
-export default class MyDocument extends Document {
-  render() {
-    return (
-      <html>
-        <Head>
-          <link rel="stylesheet" href="/_next/static/style.css" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
-    )
-  }
-}
-```
-
-More information : [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css).
-
-### 3. Edit `next.config.js`.
+### 2. Edit `next.config.js`.
 
 ```js
 // next.config.js

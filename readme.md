@@ -8,6 +8,8 @@ Next.js + Purgecss = 🔥
 
 ## Installation
 
+> 🏎 Check out the [**examples folder**](examples) to see examples for your specific setup.
+
 ### 1. Install the packages
 
 `next-purgecss` requires one of the following **css next plugins** :
@@ -17,8 +19,6 @@ Next.js + Purgecss = 🔥
 - [next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass)
 
 Just pick the one that fits your needs. In the following steps, I will use `next-css` but it works the same for the other **css next plugins**.
-
-> 🏎 Check out the [**examples folder**](examples) to see examples for other setups.
 
 For example, install `next-css` and `next-purgecss` :
 

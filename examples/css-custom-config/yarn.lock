@@ -2848,9 +2848,9 @@ neo-async@^2.5.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
 
-next-purgecss@^2.0.0-beta.1:
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/next-purgecss/-/next-purgecss-2.0.0-beta.1.tgz#d3e297e76067338e4a8485427801c34fc98474ff"
+next-purgecss@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/next-purgecss/-/next-purgecss-2.0.0.tgz#392b393a1b777cb117643fa3a1af3dd03b04921d"
   dependencies:
     glob-all "^3.1.0"
     purgecss-webpack-plugin "^0.22.0"

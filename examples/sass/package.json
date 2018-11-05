@@ -12,6 +12,6 @@
   },
   "devDependencies": {
     "@zeit/next-sass": "^1.0.1",
-    "next-purgecss": "^1.0.3"
+    "next-purgecss": "^2.0.0"
   }
 }

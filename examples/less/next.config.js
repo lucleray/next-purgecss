@@ -1,4 +1,3 @@
-// next.config.js
 const withLess = require('@zeit/next-less')
 const withPurgeCss = require('next-purgecss')
 

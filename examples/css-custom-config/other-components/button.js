@@ -1,1 +1,3 @@
-export default () => <div className="button-blue">Blue button</div>
+export default ({ children }) => (
+  <button className="blue-button">{children}</button>
+)

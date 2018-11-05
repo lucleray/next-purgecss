@@ -1,0 +1,15 @@
+.example {
+  font-size: 50px;
+}
+
+.button-blue {
+  color: blue;
+}
+
+.unused-but-whitelisted-class {
+  color: green;
+}
+
+.unused-css-class {
+  color: red;
+}

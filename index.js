@@ -1,34 +1,28 @@
 const path = require('path')
-const glob = require('glob')
+const glob = require('glob-all')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 
-module.exports = (nextConfig = {}) => {
-  return Object.assign({}, nextConfig, {
-    webpack(config, options) {
-      if (!options.defaultLoaders) {
-        throw new Error(
-          'This plugin is not compatible with Next.js versions below 5.0.0 https://err.sh/next-plugins/upgrade'
-        )
-      }
+module.exports = ({
+  purgeCss = {},
+  purgeCssPaths = ['pages/**/*', 'components/**/*'],
+  webpack = config => config,
+  ...nextConfig
+} = {}) => ({
+  // pass nextConfig
+  ...nextConfig,
 
-      const { purgeCss } = nextConfig
+  // overwrite webpack config
+  webpack: (webpackConfig, options) => {
+    webpackConfig.plugins.push(
+      new PurgecssPlugin({
+        paths: () =>
+          glob.sync(purgeCssPaths.map(p => path.join(config.context, p)), {
+            nodir: true
+          }),
+        ...purgeCss
+      })
+    )
 
-      const defaultPurgeCss = {
-        paths: glob.sync(
-          `${path.join(config.context, '+(pages|components)')}/**/*`,
-          { nodir: true }
-        )
-      }
-
-      const purgeCssOptions = Object.assign({}, defaultPurgeCss, purgeCss)
-
-      config.plugins.push(new PurgecssPlugin(purgeCssOptions))
-
-      if (typeof nextConfig.webpack === 'function') {
-        return nextConfig.webpack(config, options)
-      }
-
-      return config
-    }
-  })
-}
+    return webpack(webpackConfig, options)
+  }
+})

@@ -44,8 +44,25 @@ module.exports = withCss(withPurgeCss())
 
 ## Options
 
+### `purgeCssPaths`
+
 By default, this plugin will scan `components` and `pages`
-directories for classnames.
+directories for classnames. You can change that by defining `purgeCssPaths`.
+
+```js
+// next.config.js
+module.exports = withCss(
+  withPurgeCss({
+    purgeCssPaths: [
+      'pages/**/*',
+      'components/**/*',
+      'other-components/**/*' // also scan other-components folder
+    ]
+  })
+)
+```
+
+### `purgeCss`
 
 You can pass custom options to
 [Purgecss](https://github.com/FullHuman/purgecss-webpack-plugin) by defining
@@ -64,3 +81,5 @@ module.exports = withCss(
 
 The list of available options are documented in [`purgecss-webpack-plugin`
 docs](https://github.com/FullHuman/purgecss-webpack-plugin#options).
+
+> ⚠️ `purgeCss.paths` will overwrite `purgeCssPaths`

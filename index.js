@@ -15,7 +15,7 @@ module.exports = (nextConfig = {}) => {
 
       const defaultPurgeCss = {
         paths: glob.sync(
-          `${path.join(process.cwd(), '+(pages|components)')}/**/*`,
+          `${path.join(config.context, '+(pages|components)')}/**/*`,
           { nodir: true }
         )
       }

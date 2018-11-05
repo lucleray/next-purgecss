@@ -16,9 +16,12 @@ module.exports = ({
     webpackConfig.plugins.push(
       new PurgecssPlugin({
         paths: () =>
-          glob.sync(purgeCssPaths.map(p => path.join(config.context, p)), {
-            nodir: true
-          }),
+          glob.sync(
+            purgeCssPaths.map(p => path.join(webpackConfig.context, p)),
+            {
+              nodir: true
+            }
+          ),
         ...purgeCss
       })
     )

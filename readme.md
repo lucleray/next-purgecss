@@ -18,6 +18,8 @@ Next.js + Purgecss = 🔥
 
 Just pick the one that fits your needs. In the following steps, I will use `next-css` but it works the same for the other **css next plugins**.
 
+> 🏎 Check out the [**examples folder**](examples) to see examples for other setups.
+
 For example, install `next-css` and `next-purgecss` :
 
 ```

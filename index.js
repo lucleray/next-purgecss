@@ -5,7 +5,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 module.exports = ({
   purgeCss = {},
   purgeCssPaths = ['pages/**/*', 'components/**/*'],
-  webpack = config => config,
+  webpack,
   ...nextConfig
 } = {}) => ({
   // pass nextConfig
@@ -26,6 +26,10 @@ module.exports = ({
       })
     )
 
-    return webpack(webpackConfig, options)
+    if (typeof webpack === 'function') {
+      return webpack(webpackConfig, options)
+    }
+
+    return webpackConfig
   }
 })

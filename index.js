@@ -3,7 +3,7 @@ const glob = require('glob-all')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 module.exports = ({
-  purgeCssEnabled = ({ dev, isServer }) => true,
+  purgeCssEnabled = () => true,
   purgeCss = {},
   purgeCssPaths = ['pages/**/*', 'components/**/*'],
   webpack,

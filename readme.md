@@ -50,7 +50,7 @@ By default, `next-purgecss` will always remove unused CSS, regardless of build e
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `dev` | `Boolean` | Shows if the compilation is done in development mode (`true`) or production mode (`false`) |
+| `dev` | `Boolean` | `true` in development mode (running `next`) or `false` in production mode (running `next start`) |
 | `isServer` | `Boolean` | Shows if the configuration will be used for server side compilation (`true`), or client side compilation (`false`) |
 
 ```js

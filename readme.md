@@ -44,6 +44,24 @@ module.exports = withCss(withPurgeCss())
 
 ## Options
 
+### `purgeCssEnabled`
+
+By default, `next-purgecss` will always remove unused CSS, regardless of build environment. You can change that by defining a function for the `purgeCssEnabled` option. The `purgeCssEnabled` function receives two arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `dev` | `Boolean` | `true` in development mode (running `next`) or `false` in production mode (running `next start`) |
+| `isServer` | `Boolean` | `true` during server side compilation or `false` during client side compilation |
+
+```js
+// next.config.js
+module.exports = withCss(
+  withPurgeCss({
+    purgeCssEnabled: ({ dev, isServer }) => (!isDev && !isServer) // Only enable PurgeCSS for client-side production builds
+  })
+)
+```
+
 ### `purgeCssPaths`
 
 By default, this plugin will scan `components` and `pages`

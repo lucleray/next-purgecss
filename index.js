@@ -13,8 +13,9 @@ module.exports = ({
   ...nextConfig,
 
   // overwrite webpack config
-  webpack: (webpackConfig, { dev, isServer }) => {
+  webpack: (webpackConfig, options) => {
     // Don't add plugin unless PurgeCSS is enabled
+    const { dev, isServer } = options
     if (!purgeCssEnabled({ dev, isServer })) {
       return webpackConfig
     }

@@ -57,7 +57,7 @@ By default, `next-purgecss` will always remove unused CSS, regardless of build e
 // next.config.js
 module.exports = withCss(
   withPurgeCss({
-    purgeCssEnabled: ({ dev, isServer }) => (!isDev && !isServer) // Only enable PurgeCSS for client-side production builds
+    purgeCssEnabled: ({ dev, isServer }) => (!dev && !isServer) // Only enable PurgeCSS for client-side production builds
   })
 )
 ```

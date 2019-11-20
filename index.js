@@ -14,24 +14,23 @@ module.exports = ({
 
   // overwrite webpack config
   webpack: (webpackConfig, options) => {
-    // Don't add plugin unless PurgeCSS is enabled
     const { dev, isServer } = options
-    if (!purgeCssEnabled({ dev, isServer })) {
-      return webpackConfig
-    }
 
-    webpackConfig.plugins.push(
-      new PurgecssPlugin({
-        paths: () =>
-          glob.sync(
-            purgeCssPaths.map(p => path.join(webpackConfig.context, p)),
-            {
-              nodir: true
-            }
-          ),
-        ...purgeCss
-      })
-    )
+    // Only add plugin when PurgeCSS is enabled
+    if (purgeCssEnabled({ dev, isServer })) {
+      webpackConfig.plugins.push(
+        new PurgecssPlugin({
+          paths: () =>
+            glob.sync(
+              purgeCssPaths.map(p => path.join(webpackConfig.context, p)),
+              {
+                nodir: true
+              }
+            ),
+          ...purgeCss
+        })
+      )
+    }
 
     if (typeof webpack === 'function') {
       return webpack(webpackConfig, options)
